@@ -292,6 +292,14 @@ This error can happen when device is physically removed (for example
 some hotplug devices like USB or PCMCIA, CardBus or ExpressCard
 can be removed on the fly).
 
+\par -ENODATA
+
+This error can happen if the device is dependent on another
+device and device is not yet running (e.g. PCMs connected for echo
+reference as described by SND_USE_CASE_MOD_ECHO_REF UCM token).
+The application should call snd_pcm_prepare() and start I/O
+again.
+
 \section pcm_params Managing parameters
 
 The ALSA PCM device uses two groups of PCM related parameters. The hardware
